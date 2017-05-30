@@ -6,7 +6,8 @@ $(document).ready(function(){
 
   var checkingAccount = 0;
   var savingsAccount = 10;
-
+  $("#checking-balance").text('$' + checkingAccount)
+  $("#savings-balance").text('$' + savingsAccount)
 
     //  function which will parseInt from input field and add it to checking balance. this also updates the visual representation
   var depositToChecking = function(){
@@ -26,7 +27,21 @@ $(document).ready(function(){
     var parsedValue = (parseInt(valueAmount));
 
     if (checkingAccount < parsedValue ) {
-      
+
+      var drawFromSavings = parsedValue - checkingAccount;
+      checkingAccount = 0;
+
+      // if statement evaluates if there is enough in the savings account to protect from overdraft, and withdraws money from there instead.
+
+      if (savingsAccount < drawFromSavings) {
+        alert("Insufficient funds")
+      } else {
+        savingsAccount -= drawFromSavings;
+      }
+      console.log("this is how much is left in savings " + savingsAccount);
+      $("#checking-balance").text('$' + checkingAccount)
+      $("#savings-balance").text('$' + savingsAccount)
+
       // alert("Insufficient funds. Cannot withdraw")
     } else {
       checkingAccount = checkingAccount -= parsedValue;
