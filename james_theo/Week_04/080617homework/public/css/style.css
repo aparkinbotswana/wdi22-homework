@@ -1,0 +1,14 @@
+body{
+  background-color: green;
+  /*background-image: url(https://media.giphy.com/media/KvYeWZTlHEdQA/giphy.gif);*/
+
+}
+p {
+  color: darkred;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  display: block;
+}

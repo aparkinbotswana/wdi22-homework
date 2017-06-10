@@ -1,5 +1,5 @@
 
-// Code which I probably wont need. Keep it here just in case. Screw you MTA
+// -------Code which I probably wont need. Keep it here just in case. Screw you MTA------
 //
 
 // var linesOnly = Object.keys(trainLine)
@@ -27,7 +27,7 @@
 // }
 
 
-// // probably wont need this. why did i write it to begin with? I can't remember. It was late.
+// // ------probably wont need this. why did i write it to begin with? I can't remember. It was late.-----------
 //
 // for (var i = 0; i < linesOnly.length; i++) {
 //
@@ -73,51 +73,46 @@ var stationS = journeyBeginEnd.slice(1, 2);
 var lineE = journeyBeginEnd.slice(2, 3);
 var stationE = journeyBeginEnd.slice(3);
 
-
-// James, to retrieve the array of stations for a particular line, you want something like this:
-// ```var lineName = 'lineN';
-// var stations = trainLine[ lineName ];
-// ```
-// Now the variable `stations` will have as its value the array ` ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"]`
-//
-// Luke Hammer [12:34 PM]
-// Keep in mind that `lineName` will probably be an argument to your trip planning function, not a new variable declared with `var lineName` in the way i've shown for this example
+// var planTrip = function(lineS, stationS, line, stationE) {
 
 
-// Testing data inputs. Delete once code is running and use object.
-var lineN = ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"];
-var lineL = ["8th", "6th", "Union Square", "3rd", "1st"];
-var choosenStation = '28th'
-var choosenEndSation = "1st"
+  // Testing data inputs. Delete once code is running and use object.
+  // var lineN = ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"];
+  // var lineL = ["8th", "6th", "Union Square", "3rd", "1st"];
+  // var choosenStation = '34th'
+  // var choosenEndSation = "1st"
 
-var beginStaIndex = function() {
-  return lineN.indexOf(choosenStation)
-}
+  var beginStaIndex = function() {
+    return trainLine.lineS.indexOf(stationS)
+  }
 
-var endStaIndex = function() {
-  return lineL.indexOf(choosenEndSation)
-}
-
-
-if (lineN.indexOf(choosenStation) < lineN.indexOf('Union Square')) {
-
-  tripFirstHalf = lineN.slice(beginStaIndex(), (lineN.indexOf('Union Square') + 1));
-  tripSecondHalf = lineL.slice((lineL.indexOf('Union Square')), endStaIndex() + 1);
-  // console.log("yes");
-
-// } else if (lineN.indexOf(choosenStation)> lineN.indexOf('Union Square')) {
-  // tripFirstHalf = lineN.slice(endStaIndex(), (lineN.indexOf('Union Square')));
-
-  // console.log("yes yes yes");
-}
+  var endStaIndex = function() {
+    return trainLine.lineE.indexOf(stationE)
+  }
 
 
+  if (trainLine.lineS.indexOf(stationS) < trainLine.lineS.indexOf('Union Square')) {
 
-console.log("you must travel through the following stops on the " + tripFirstHalf.join(', ') + " change at Union Square. Youre journey continues through the following stops " + tripSecondHalf.join(', ') + ' ' + (tripFirstHalf.length + tripSecondHalf.length) + " in total"  );
+    tripFirstHalf = trainLine.lineS.slice(beginStaIndex(), (trainLine.lineS.indexOf('Union Square') + 1));
+    tripSecondHalf = trainLine.lineE.slice((trainLine.lineE.indexOf('Union Square') + 1), endStaIndex() + 1);
+    console.log("yes");
 
-// var planTrip = function(lineStart, stationStart, lineEnd, stationEnd) {
-// //
-// // }
+
+    // ---------REVISIT. COMPLETELY REWORK AND RETHINK LOGIC-----------
+    // } else if (lineN.indexOf(choosenStation) > lineN.indexOf('Union Square')) {
+    // tripFirstHalf = lineN.slice((lineN.indexOf('Union Square') + 1), endStaIndex() + 1).reverse();
+    // tripSecondHalf = lineL.slice((lineL.indexOf('Union Square') + 1), endStaIndex() + 1).reverse();
+
+    console.log("yes yes yes");
+  }
+
+
+  if (tripSecondHalf.length === 0) {
+    console.log("you must travel through the following stops on the " + tripFirstHalf.join(', ') + '. ' + tripFirstHalf.length + " stops in total");
+  } else {
+    console.log("you must travel through the following stops on the " + tripFirstHalf.join(', ') + " change at Union Square. Youre journey continues through the following stops " + tripSecondHalf.join(', ') + ' ' + (tripFirstHalf.length + tripSecondHalf.length) + " stops in total");
+  }
+// }
 
 
 // # MTA Lab

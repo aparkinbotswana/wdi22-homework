@@ -19,12 +19,12 @@ var word = ['F', 'O', 'X'];
 var newWord = ['_', '_', '_'];
 var score = 0
 
-// var randomScore = function() {
-//   return (Math.floor(Math.random() * (30 - 15)) + 15).toFixed(0);
-//   // console.log((Math.floor(Math.random() * (30 - 15)) + 15).toFixed(0));
-//
-// }
-// randomScore();
+var randomScore = function() {
+  return (Math.floor(Math.random() * (30 - 15)) + 15).toFixed(0);
+  // console.log((Math.floor(Math.random() * (30 - 15)) + 15).toFixed(0));
+
+}
+randomScore();
 
 
 var guessLetter = function (guess) {
@@ -61,10 +61,10 @@ var guessLetter = function (guess) {
       default:
         //  alert('You Suck =) You are now on ' + score -5 + ' Points.');
         //  alert('You Suck =) You are now on ' + score + ' Points.');
-         alert('You Suck =)');
-         score -= 5;
-         console.log(score);
-        //  window.location = "https://giphy.com/gifs/EizPK3InQbrNK"
+        //  alert('You Suck =)');
+        //  score -= 5;
+        //  console.log(score);
+         window.location = "https://giphy.com/gifs/EizPK3InQbrNK";
 
 
             // if (newWord === ['F', 'O', 'X']) {

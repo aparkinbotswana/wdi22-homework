@@ -1,18 +1,18 @@
 
 
 
-// 
-// var accounts1 =
-// {
-//   accountName: 'James',
-//   accountType:['Cheque', 'Savings', 'Credit'],
-//   account amount:[10000.34, 10340.1, 23.6]
-// },
-// {
-//   accountName: 'Miss Piggy'
-//   accountType:['Cheque', 'Savings', 'Credit'],
-//   account amount:[324.3, 23566.2, 24.12]
-// };
+
+var accounts1 =
+{
+  accountName: 'James',
+  accountType:['Cheque', 'Savings', 'Credit'],
+  account amount:[10000.34, 10340.1, 23.6]
+},
+{
+  accountName: 'Miss Piggy'
+  accountType:['Cheque', 'Savings', 'Credit'],
+  account amount:[324.3, 23566.2, 24.12]
+};
 
 //
 var whichAccount = function() {
@@ -64,7 +64,7 @@ var makeTransaction = function () {
   }
 }
 makeTransaction();
-// stringToText();
+// // stringToText();
 
 // There is only one bank. This bank has an array of accounts.
 // The bank needs a method that will return the total sum of money in the accounts.

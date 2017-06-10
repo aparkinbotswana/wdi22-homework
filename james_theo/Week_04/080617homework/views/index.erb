@@ -1,0 +1,14 @@
+<h2>Fruit Salad!!! Yummy Yummy!!!</h2>
+
+<% @wiggles.each do |wiggle| %>
+
+<p>
+ <a href="/wiggles/<%= wiggle["id"] %>"><%= wiggle["wiggle_colour"] %></a>
+
+ <a class="edit" href="/wiggles/<%= wiggle["id"] %>/edit">edit</a>
+
+ <a class="edit" href="/wiggles/<%= wiggle["id"] %>/delete">delete</a>
+
+</p>
+
+<% end %>
